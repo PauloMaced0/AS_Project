@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/paulo/Documents/WebApp/venv"
+set -gx VIRTUAL_ENV "/home/paulo/Documents/AS_Project/TrotiNet_Webapp/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
