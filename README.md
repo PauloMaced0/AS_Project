@@ -18,5 +18,5 @@ This project implements a service for scooter rental, similar to Uber.
 3. Run for testing
 
     ```bash
-    $ python3 webapp.py
+    $ python3 app.py
     ```

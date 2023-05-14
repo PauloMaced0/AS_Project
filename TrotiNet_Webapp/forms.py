@@ -71,5 +71,5 @@ class UpdatePasswordForm(FlaskForm):
 
 class UpdateProfilePic(FlaskForm):
     picture = FileField('Upload an image', validators=[
-                        DataRequired(), FileAllowed(['jpg', 'png'])])
+                        DataRequired(), FileAllowed(['jpg', 'png', 'jpeg'])])
     submit_profilePic = SubmitField('Update')

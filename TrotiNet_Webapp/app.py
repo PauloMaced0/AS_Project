@@ -55,7 +55,7 @@ def save_picture(form_picture):
     _, file_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + file_ext
     picture_path = os.path.join(
-        app.root_path, 'static/profileImage', picture_fn)
+        app.root_path, 'static/img/profileImage', picture_fn)
 
     # get the original width and height of the image
     image = Image.open(form_picture)
@@ -95,14 +95,14 @@ def db_store_image(img_name):
         filename = os.path.basename(old_img[0])
         if filename != "default.jpg":
             old_img_path = os.path.join(os.path.dirname(
-                os.path.abspath(__file__)), 'static', 'profileImage', filename)
+                os.path.abspath(__file__)), 'static', 'profileImage', 'img', filename)
             try:
                 os.remove(old_img_path)
                 print(f"Successfully removed {old_img_path}")
             except FileNotFoundError:
                 print(f"{old_img_path} doesn't exist.")
 
-        img_path = url_for('static', filename='profileImage/' + img_name)
+        img_path = url_for('static', filename='img/profileImage/' + img_name)
         cursor.execute("UPDATE users SET image_file=? WHERE username=?", [
                        img_path, current_user.username])
 
@@ -123,7 +123,7 @@ def register():
                     hashed_passsword = bcrypt.generate_password_hash(
                         form.password.data).decode('utf-8')
                     image_file = url_for(
-                        'static', filename='profileImage/default.jpg')
+                        'static', filename='img/profileImage/default.jpg')
                     cursor.execute("INSERT INTO users(username, email, password, image_file) VALUES (?,?,?,?)", [
                         form.username.data, form.email.data, hashed_passsword, image_file])
                     flash('Your account has been created {}!'.format(
@@ -238,6 +238,15 @@ def index():
 def home():
     return render_template('home.html', title='Home')
 
+@ app.route("/chat", methods=['GET', 'POST'])
+@login_required
+def chat():
+    return render_template('chat.html', title='Chat')
+
+@ app.route("/history", methods=['GET', 'POST'])
+@login_required
+def history():
+    return render_template('history.html', title='History')
 
 @ app.route("/book", methods=['GET', 'POST'])
 @login_required
