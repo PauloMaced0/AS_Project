@@ -38,9 +38,3 @@ items.forEach(item => {
         }
     });
 });
-
-// Get the current year
-var currentYear = new Date().getFullYear();
-  
-// Set the current year in the footer
-document.getElementById("current-year").innerHTML = currentYear;
