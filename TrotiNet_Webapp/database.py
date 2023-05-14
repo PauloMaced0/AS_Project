@@ -1,13 +1,10 @@
 import sqlite3
 import os
-from flask import url_for
 
 DB_STRING = "app.db"
 
 db_directory = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(db_directory, DB_STRING)
-
-# Complete/review!
 
 
 def setup_database():
@@ -46,8 +43,8 @@ def clean_database():
 
 
 def main():
-    # setup_database()
-    show_database()
+    setup_database()
+    # show_database()
     # clean_database()
 
 
