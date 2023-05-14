@@ -90,3 +90,14 @@ footer {
     opacity: 0.95;
 
 }
+
+.container-alert {
+    position: relative;
+}
+
+.alert {
+    position: absolute ;
+    top: 0%;
+    width: 100%;
+    padding: 2%;
+}

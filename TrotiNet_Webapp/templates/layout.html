@@ -44,7 +44,7 @@
       {% if messages %}
       {% for category, message in messages %}
       {% if category == 'info' %}
-      <div id="alert-timer" class="alert alert-primary d-flex align-items-center fade show">
+      <div id="alert-timer" class="alert alert-primary d-flex align-items-center fade show container-alert">
         {% else %}
         <div id="alert-timer" class="alert alert-{{ category }} d-flex align-items-center fade show">
           {% endif%}
