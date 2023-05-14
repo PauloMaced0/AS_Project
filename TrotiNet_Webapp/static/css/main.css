@@ -1,7 +1,3 @@
-.password_input_group {
-    width: 42%;
-}
-
 html, body{
     height: 100%;
 }
@@ -14,7 +10,87 @@ main{
     flex: 1;
 }
 
-footer {
-    flex-shrink: 0;
-    background-color: rgb(238, 238, 238);
+a {
+    color: #5D3EA8;
+    text-decoration: none;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 9%;
+    border-radius: 20px 20px 0px 0px;
+    flex-shrink: 0;
+    background-color: white;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.button_purple {
+    background-color: #5D3EA8;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.password_input_group {
+    width: 42%;
+}
+
+.title {
+    position: absolute;
+    color: black;
+    top: 8%;
+    left: 7%
+
+}
+
+
+
+#start_page {
+    background-image: url('../img/start_page.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+#home_page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/home_page.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+
+#start_page #title {
+    position: absolute;
+    color: white;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+#start_page #login_button {
+    position: absolute;
+    color: white;
+    bottom:10%;
+    width: 80%;
+    height: 6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.95;
+    
+}
+
