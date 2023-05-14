@@ -229,15 +229,20 @@ def account():
 
 
 @ app.route("/")
+def index():
+    return render_template('start.html', title='Home')
+
+
 @ app.route("/home", methods=['GET', 'POST'])
+@login_required
 def home():
     return render_template('home.html', title='Home')
 
 
-@ app.route("/rentreserve", methods=['GET', 'POST'])
+@ app.route("/book", methods=['GET', 'POST'])
 @login_required
-def rentreserve(): 
-    return render_template('rent_reserve.html', title='Rent/Reserve')
+def book(): 
+    return render_template('book.html', title='Book Scooter')
 
 
 @ app.route("/about")

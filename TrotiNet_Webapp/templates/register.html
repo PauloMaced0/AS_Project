@@ -1,5 +1,8 @@
-{% extends "layout.html" %}
+{% extends "layout1.html" %}
 {% block content%}
+<div class="container">
+    <h1 class="title">Register</h1>
+</div>
 <div class="float-sm-start position-absolute top-50 start-50 translate-middle border d-flex rounded-2">
     <form method="POST" action="" class="m-4">
         {{ form.hidden_tag() }}
@@ -80,7 +83,7 @@
             {% endif %}
         </div>
         <div class="mb-3">
-            {{ form.submit(class="btn btn-primary") }}
+            {{ form.submit(class="button_purple") }}
         </div>
     <div class="border-top pt-2">
         <small class="text-muted">

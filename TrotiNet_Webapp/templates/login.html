@@ -1,6 +1,11 @@
-{% extends "layout.html" %}
+{% extends "layout1.html" %}
+
+
 {% block content%}
-<div class="float-sm-start position-absolute top-50 start-50 translate-middle border rounded-2 d-flex">
+<div class="container">
+    <h1 class="title">Login</h1>
+</div>
+<div class="w-75 float-sm-start position-absolute top-50 start-50 translate-middle border rounded-2 d-flex">
     <form method="POST" action="" class="m-4">
         {{ form.hidden_tag() }}
         <div class="mb-3">
@@ -47,7 +52,7 @@
         </div>
 
         <div class="form-group mb-3">
-            {{ form.submit(class="btn btn-primary") }}
+            {{ form.submit(class="button_purple") }}
         </div>
         <div class="border-top pt-2">
             <small class="text-muted">
