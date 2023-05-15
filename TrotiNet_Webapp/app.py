@@ -253,10 +253,15 @@ def history():
 def book(): 
     return render_template('book.html', title='Book Scooter')
 
-
 @ app.route("/about")
 def about():
     return render_template('about.html', title='About')
+
+
+@ app.route("/checkout", methods=['GET', 'POST'])
+@login_required
+def checkout(): 
+    return render_template('checkout.html', title=' Checkout')
 
 
 @app.route("/logout")
