@@ -12,7 +12,7 @@ main {
     flex: 1;
 }
 
-.a_link {
+a {
     color: #5D3EA8;
     text-decoration: none;
 }
@@ -39,6 +39,7 @@ footer {
     margin-top: 2%;
     margin-bottom: 2%;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .password_input_group {
@@ -50,6 +51,20 @@ footer {
     color: black;
     top: 8%;
     left: 7%
+}
+
+.main_menu {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 70.44%;
+    bottom: 0%;
+}
+
+.main_menu_popup {
+    background: #FFFFFF;
+    border-radius: 20px 20px 0px 0px;
+    filter: drop-shadow(0px -1px 2px rgba(0, 0, 0, 0.15));
 }
 
 #start_page {
@@ -76,7 +91,6 @@ footer {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
 
 #start_page #login_button {

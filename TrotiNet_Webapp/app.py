@@ -171,8 +171,6 @@ def account():
     ProfilePicform = UpdateProfilePic()
     Passwordform = UpdatePasswordForm()
 
-    if not current_user.is_authenticated:
-        return redirect(url_for('login'))
 
     if request.method == 'POST':
         if Personalform.validate_on_submit():
@@ -230,7 +228,11 @@ def account():
 
 @ app.route("/")
 def index():
-    return render_template('start.html', title='Home')
+    # if user is logged in, redirect to home page, else redirect to start page
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    else:
+        return render_template('start.html', title='Home')
 
 
 @ app.route("/home", methods=['GET', 'POST'])
