@@ -21,9 +21,9 @@ $(document).ready(function () {
 
 const items = document.querySelectorAll(".toggle_password");
 items.forEach(item => {
-        const passwordField = item.querySelector("input");
-        const spanField = item.querySelector("span");
-        spanField.addEventListener('click', () => {
+    const passwordField = item.querySelector("input");
+    const spanField = item.querySelector("span");
+    spanField.addEventListener('click', () => {
         const show_eye_icon = item.querySelector(".fa-eye");
         const hide_eye_icon = item.querySelector(".fa-eye-slash");
 
@@ -38,3 +38,27 @@ items.forEach(item => {
         }
     });
 });
+
+
+// Update the icon colors based on the current URL
+function updateIconColors() {
+    var currentPath = window.location.pathname;
+
+    // Define the color for each icon
+    var url_icon = {
+        '/trip': 'home_icon',
+        '/trip/view': 'home_icon',
+        '/book': 'book_icon',
+        '/account': 'profile_icon',
+        '/history': 'history_icon',
+        '/chat': 'chat_icon'
+    };
+    for (var url in url_icon) {
+        if (currentPath === url) {
+            var icon = document.getElementById(url_icon[currentPath]);
+            icon.style.color = 'purple';
+        }
+    }
+}
+
+updateIconColors();

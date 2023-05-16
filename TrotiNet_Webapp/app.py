@@ -95,7 +95,7 @@ def db_store_image(img_name):
         filename = os.path.basename(old_img[0])
         if filename != "default.jpg":
             old_img_path = os.path.join(os.path.dirname(
-                os.path.abspath(__file__)), 'static', 'profileImage', 'img', filename)
+                os.path.abspath(__file__)), 'static', 'img', 'profileImage', filename)
             try:
                 os.remove(old_img_path)
                 print(f"Successfully removed {old_img_path}")
@@ -154,7 +154,7 @@ def login():
                 if bcrypt.check_password_hash(query_result[1], form.password.data) and form.email.data == query_result[0]:
                     login_user(user, remember=form.remember.data,
                                duration=timedelta(minutes=30), force=False, fresh=True)
-                    return redirect(url_for('home'))
+                    return redirect(url_for('trip'))
                 else:
                     flash(
                         'Login Unsuccessful. Please check email and password!', 'danger')
@@ -170,9 +170,6 @@ def account():
     Personalform = UpdatePersonalForm()
     ProfilePicform = UpdateProfilePic()
     Passwordform = UpdatePasswordForm()
-
-    if not current_user.is_authenticated:
-        return redirect(url_for('login'))
 
     if request.method == 'POST':
         if Personalform.validate_on_submit():
@@ -228,25 +225,37 @@ def account():
     return render_template('account.html', title='Account', personalform=Personalform, accountform=Accountform, picform=ProfilePicform, passwordform=Passwordform)
 
 
+@ app.route("/trip/view", methods=['GET', 'POST'])
+@login_required
+def view():
+    js_file = url_for('static', filename='js/view.js')
+    return render_template('view.html', title='View', js_file = js_file)
+
+
 @ app.route("/")
 def index():
-    return render_template('start.html', title='Home')
+    if current_user.is_authenticated:
+        return redirect(url_for('trip'))
+    return render_template('start.html', title='Start')
 
 
-@ app.route("/home", methods=['GET', 'POST'])
+@ app.route("/trip", methods=['GET', 'POST'])
 @login_required
-def home():
-    return render_template('home.html', title='Home')
+def trip():
+    return render_template('home.html', title='Trip')
+
 
 @ app.route("/chat", methods=['GET', 'POST'])
 @login_required
 def chat():
     return render_template('chat.html', title='Chat')
 
+
 @ app.route("/history", methods=['GET', 'POST'])
 @login_required
 def history():
     return render_template('history.html', title='History')
+
 
 @ app.route("/book", methods=['GET', 'POST'])
 @login_required
@@ -258,12 +267,11 @@ def book():
 def about():
     return render_template('about.html', title='About')
 
-@app.route("/checkout", methods=['GET', 'POST'])
+
+@app.route("/trip/checkout", methods=['GET', 'POST'])
 @login_required
 def checkout(): 
     return render_template('checkout.html', title=' Checkout')
-
-
 
 
 @app.route("/logout")
