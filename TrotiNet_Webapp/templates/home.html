@@ -6,13 +6,25 @@
 <div class="main_menu">
     <div class="container align-content-center">
         <div class="row m-3">
-            <a href="{{ url_for('login')}}" class="btn btn-light button_purple rounded-3 text-center"> Rent Scooter(s)</a>
-        </div>
+            <button onclick="toggle('popup_rent')" class="btn btn-light button_purple">Rent Scooter(s)</button>        </div>
         <div class="row m-3">
             <a class="text-center a_link" href="">Join group trip</a>
         </div>
     </div>
 </div>
+
+<!-- hidden div -->
+<div id="popup_rent" class="main_menu main_menu_popup" style="display:none;">
+    <div class="container align-content-center">
+        <div class="row m-3">
+            <a href="/trip/checkout" class="btn btn-light button_purple rounded-3 text-center">Checkout</a>
+        </div>
+        <div class="row m-3">
+            <a class="text-center a_link">Add another scooter</a>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
 
 {% block footer %}
