@@ -66,45 +66,8 @@
       {% endwith %}
 
       {% block content %}{% endblock %}
+      {% block footer %}{% endblock %}
     </div>
-
-    <footer class="footer rounded-top-4">
-      <div class="container p-3">
-        <div class="row">
-
-          <div class="col text-center ">
-            <a href="{{ url_for('trip') }}">
-              <i id="home_icon" class="bi bi-house-fill " style="font-size: 25px ; color: gray;"></i>
-            </a>
-          </div>
-
-          <div class="col text-center">
-            <a href="{{ url_for('book') }}">
-              <i id="book_icon" class="bi bi-calendar2-week-fill" style="font-size: 25px ; color: gray;"></i>
-            </a>
-          </div>
-
-          <div class="col text-center">
-            <a href="{{ url_for('account') }}">
-              <i id="profile_icon" class="bi bi-person-circle" style="font-size: 25px; color: gray;"></i>
-            </a>
-          </div>
-
-          <div class="col text-center">
-            <a href="{{ url_for('history') }}">
-              <i id="history_icon" class="bi bi-clock-fill" style="font-size: 25px ; color: gray; "></i>
-            </a>
-          </div>
-
-          <div class="col text-center">
-            <a href="{{ url_for('chat') }}">
-              <i id="chat_icon" class="bi bi-chat-left-text-fill" style="font-size: 25px ; color: gray; "></i>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </footer>
 </body>
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"

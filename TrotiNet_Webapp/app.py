@@ -154,7 +154,7 @@ def login():
                 if bcrypt.check_password_hash(query_result[1], form.password.data) and form.email.data == query_result[0]:
                     login_user(user, remember=form.remember.data,
                                duration=timedelta(minutes=30), force=False, fresh=True)
-                    return redirect(url_for('home'))
+                    return redirect(url_for('trip'))
                 else:
                     flash(
                         'Login Unsuccessful. Please check email and password!', 'danger')
@@ -170,9 +170,6 @@ def account():
     Personalform = UpdatePersonalForm()
     ProfilePicform = UpdateProfilePic()
     Passwordform = UpdatePasswordForm()
-
-    if not current_user.is_authenticated:
-        return redirect(url_for('login'))
 
     if request.method == 'POST':
         if Personalform.validate_on_submit():

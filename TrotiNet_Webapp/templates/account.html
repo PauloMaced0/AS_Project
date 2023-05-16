@@ -11,12 +11,12 @@
             </div>
 
             <div class="">
-                <div class="mx-auto" style="height: 40%; width: 40%;">
+                <div class="mx-auto" >
                     <button type="button" data-bs-toggle="modal" class="btn btn-primary-light"
                         data-bs-target="#exampleModal">
                         <img src="{{ current_user.imagefile }}"
                             class="overflow-hidden rounded-circle img-fluid img-thumbnail min-vh-75"
-                            alt="Something went wrong!" style="height: 100%; width: 100%;">
+                            alt="Something went wrong!" style="height: 40%; width: 40%;">
                     </button>
 
                 </div>
@@ -181,4 +181,8 @@
     </div>
 </div>
 
-{% endblock content %}
+{% endblock %}
+
+{% block footer %}
+{% include "footer.html" without context%}
+{% endblock %}
