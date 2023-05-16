@@ -12,3 +12,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code
 COPY . .
+
+# Setup the database
+RUN python database.py
