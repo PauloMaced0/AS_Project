@@ -107,6 +107,21 @@ def db_store_image(img_name):
                        img_path, current_user.username])
 
 
+def check_profilepic() -> str:
+    with sqlite3.connect(DB) as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT image_file FROM users WHERE username=? ", [current_user.username])
+
+        file_path = cursor.fetchone()
+
+        if os.path.exists(str(app.root_path) + str(file_path[0])):
+            print("File exists.")
+            return file_path[0]
+        else:
+            print("File does not exist.")
+            return "/static/img/profileImage/default.jpg"
+
+
 @ app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -221,8 +236,10 @@ def account():
                     return redirect(url_for('account'))
                 else:
                     flash("Current password not matched!", "warning")
+     
+    img_path = check_profilepic()
 
-    return render_template('account.html', title='Account', personalform=Personalform, accountform=Accountform, picform=ProfilePicform, passwordform=Passwordform)
+    return render_template('account.html', title='Account', personalform=Personalform, accountform=Accountform, picform=ProfilePicform, passwordform=Passwordform, imgPath = img_path)
 
 
 @ app.route("/trip/view", methods=['GET', 'POST'])

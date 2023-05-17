@@ -1,17 +1,5 @@
 {% extends "layout.html" %}
 {% block content%}
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="reservationOption" id="rentalRadio" value="rental" checked>
-    <label class="form-check-label" for="rentalRadio">
-        Book a Scooter
-    </label>
-</div>
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="reservationOption" id="reservationRadio" value="reservation">
-    <label class="form-check-label" for="reservationRadio">
-        Book a Scooter
-    </label>
-</div>
 
 <div class="container text-center">
     <a class="btn btn-light button_purple" href="{{ url_for('checkout')}}" >Checkout</a>
