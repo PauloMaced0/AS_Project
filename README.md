@@ -1,22 +1,16 @@
 # AS_Project TrotiNet
 This project implements a service for scooter rental, similar to Uber. 
-## Run the project
+## Get Started
+### Requirements
+- Docker
+- Docker-compose
 
-1. Create virtual environment (for development python3.8 was used)
-
-    ```bash
-    $ python3 -m venv venv
-    ```
-
-2. Install dependencies
-
-    ```bash
-    $ source venv/bin/activate
-    $ pip install -r requirements.txt
-    ```
-
-3. Run for testing
+### Installation
+- Clone repository
+- To run docker containers, run:
 
     ```bash
-    $ python3 app.py
+    docker compose up --build
     ```
+    - Flask application will be available at http://localhost:5001
+    - Prometheus metrics will be available at https://localhost:9090

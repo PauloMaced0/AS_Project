@@ -259,7 +259,8 @@ def index():
 @ app.route("/trip", methods=['GET', 'POST'])
 @login_required
 def trip():
-    return render_template('home.html', title='Trip')
+    js_file = url_for('static', filename='js/popup.js')
+    return render_template('home.html', title='Trip', js_file = js_file)
 
 
 @ app.route("/chat", methods=['GET', 'POST'])
@@ -277,7 +278,8 @@ def history():
 @ app.route("/book", methods=['GET', 'POST'])
 @login_required
 def book(): 
-    return render_template('book.html', title='Book Scooter')
+    js_file = url_for('static', filename='js/book.js')
+    return render_template('book.html', title='Book Scooter', js_file = js_file)
 
 
 @ app.route("/about")
