@@ -249,11 +249,17 @@ def view():
     return render_template('view.html', title='View', js_file = js_file)
 
 
+@app.route("/trip/checkout", methods=['GET', 'POST'])
+@login_required
+def checkout(): 
+    return render_template('checkout.html', title=' Checkout')
 @ app.route("/")
-def index():
-    if current_user.is_authenticated:
-        return redirect(url_for('trip'))
-    return render_template('start.html', title='Start')
+
+
+@app.route("/trip/add", methods=['GET', 'POST'])
+@login_required
+def add(): 
+    return render_template('checkout.html', title=' Checkout')
 
 
 @ app.route("/trip", methods=['GET', 'POST'])
@@ -261,6 +267,13 @@ def index():
 def trip():
     js_file = url_for('static', filename='js/popup.js')
     return render_template('home.html', title='Trip', js_file = js_file)
+
+
+@ app.route("/")
+def index():
+    if current_user.is_authenticated:
+        return redirect(url_for('trip'))
+    return render_template('start.html', title='Start')
 
 
 @ app.route("/chat", methods=['GET', 'POST'])
@@ -285,12 +298,6 @@ def book():
 @ app.route("/about")
 def about():
     return render_template('about.html', title='About')
-
-
-@app.route("/trip/checkout", methods=['GET', 'POST'])
-@login_required
-def checkout(): 
-    return render_template('checkout.html', title=' Checkout')
 
 
 @app.route("/logout")
