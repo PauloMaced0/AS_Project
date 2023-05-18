@@ -48,6 +48,7 @@ function updateIconColors() {
     var url_icon = {
         '/trip': 'home_icon',
         '/trip/view': 'home_icon',
+        '/trip/checkout': 'home_icon',
         '/book': 'book_icon',
         '/account': 'profile_icon',
         '/history': 'history_icon',
