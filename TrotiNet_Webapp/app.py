@@ -253,7 +253,6 @@ def view():
 @login_required
 def checkout(): 
     return render_template('checkout.html', title=' Checkout')
-@ app.route("/")
 
 
 @app.route("/trip/add", methods=['GET', 'POST'])
