@@ -107,6 +107,21 @@ def db_store_image(img_name):
                        img_path, current_user.username])
 
 
+def check_profilepic() -> str:
+    with sqlite3.connect(DB) as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT image_file FROM users WHERE username=? ", [current_user.username])
+
+        file_path = cursor.fetchone()
+
+        if os.path.exists(str(app.root_path) + str(file_path[0])):
+            print("File exists.")
+            return file_path[0]
+        else:
+            print("File does not exist.")
+            return "/static/img/profileImage/default.jpg"
+
+
 @ app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -221,8 +236,10 @@ def account():
                     return redirect(url_for('account'))
                 else:
                     flash("Current password not matched!", "warning")
+     
+    img_path = check_profilepic()
 
-    return render_template('account.html', title='Account', personalform=Personalform, accountform=Accountform, picform=ProfilePicform, passwordform=Passwordform)
+    return render_template('account.html', title='Account', personalform=Personalform, accountform=Accountform, picform=ProfilePicform, passwordform=Passwordform, imgPath = img_path)
 
 
 @ app.route("/trip/view", methods=['GET', 'POST'])
@@ -232,11 +249,16 @@ def view():
     return render_template('view.html', title='View', js_file = js_file)
 
 
-@ app.route("/")
-def index():
-    if current_user.is_authenticated:
-        return redirect(url_for('trip'))
-    return render_template('start.html', title='Start')
+@app.route("/trip/checkout", methods=['GET', 'POST'])
+@login_required
+def checkout(): 
+    return render_template('checkout.html', title=' Checkout')
+
+
+@app.route("/trip/add", methods=['GET', 'POST'])
+@login_required
+def add(): 
+    return render_template('checkout.html', title=' Checkout')
 
 
 @ app.route("/trip", methods=['GET', 'POST'])
@@ -244,6 +266,13 @@ def index():
 def trip():
     js_file = url_for('static', filename='js/popup.js')
     return render_template('home.html', title='Trip', js_file = js_file)
+
+
+@ app.route("/")
+def index():
+    if current_user.is_authenticated:
+        return redirect(url_for('trip'))
+    return render_template('start.html', title='Start')
 
 
 @ app.route("/chat", methods=['GET', 'POST'])
@@ -268,12 +297,6 @@ def book():
 @ app.route("/about")
 def about():
     return render_template('about.html', title='About')
-
-
-@app.route("/trip/checkout", methods=['GET', 'POST'])
-@login_required
-def checkout(): 
-    return render_template('checkout.html', title=' Checkout')
 
 
 @app.route("/logout")
