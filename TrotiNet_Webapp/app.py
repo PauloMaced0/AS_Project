@@ -278,7 +278,9 @@ def index():
 @ app.route("/chat", methods=['GET', 'POST'])
 @login_required
 def chat():
-    return render_template('chat.html', title='Chat')
+    img_path = check_profilepic()
+
+    return render_template('chat.html', title='Chat', imgPath = img_path)
 
 
 @ app.route("/history", methods=['GET', 'POST'])
