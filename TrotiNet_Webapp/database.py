@@ -21,12 +21,23 @@ def setup_database():
     );
     """
 
+    chat_messages = """CREATE TABLE IF NOT EXISTS chat(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender VARCHAR(50) NOT NULL,
+    receiver VARCHAR(50) NOT NULL, 
+    date DATE NOT NULL, 
+    message TEXT NOT NULL
+    );
+    """
+
     with sqlite3.connect(db_path) as conn:
         conn.execute(users_table)
+        conn.execute(chat_messages)
 
 
 def show_database():
-    users_table = " SELECT * FROM users "
+    users_table = " SELECT * FROM users; "
+    chat_table = " SELECT * FROM chat; "
 
     with sqlite3.connect(db_path) as conn:
         cursor = conn.cursor()
@@ -34,17 +45,24 @@ def show_database():
         for row in cursor.fetchall():
             print(row)
 
+    with sqlite3.connect(db_path) as conn:
+        cursor = conn.cursor()
+        cursor.execute(chat_table)
+        for row in cursor.fetchall():
+            print(row)
 
 def clean_database():
-    users_table = """ DROP TABLE IF EXISTS users;"""
+    users_table = " DROP TABLE IF EXISTS users;"
+    chat_table = " DROP TABLE IF EXISTS chat; "
 
     with sqlite3.connect(db_path) as conn:
         conn.execute(users_table)
+        conn.execute(chat_table)
 
 
 def main():
-    setup_database()
-    # show_database()
+    # setup_database()
+    show_database()
     # clean_database()
 
 

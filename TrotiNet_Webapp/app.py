@@ -1,13 +1,14 @@
 import os
 import sqlite3
 import secrets
+import json
 from PIL import Image
-from flask import Flask, render_template, url_for, redirect, flash, request
-from forms import RegistrationForm, LoginForm, UpdateAccountForm, UpdatePersonalForm, UpdateProfilePic, UpdatePasswordForm
+from flask import Flask, render_template, url_for, redirect, flash, request, jsonify
+from forms import RegistrationForm, LoginForm, UpdateAccountForm, UpdatePersonalForm, UpdateProfilePic, UpdatePasswordForm 
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from flask_login import UserMixin
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 DB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "app.db")
 
@@ -115,11 +116,38 @@ def check_profilepic() -> str:
         file_path = cursor.fetchone()
 
         if os.path.exists(str(app.root_path) + str(file_path[0])):
-            print("File exists.")
             return file_path[0]
         else:
-            print("File does not exist.")
             return "/static/img/profileImage/default.jpg"
+
+
+@ app.route("/get_user_id",  methods=['GET'])
+def get_user_id():
+    return jsonify({'userId' : current_user.username})
+
+
+@ app.route("/get_user_img_path",  methods=['GET'])
+def get_user_img_path():
+    return jsonify({'img_path' : check_profilepic()})
+
+
+@app.route('/get_messages', methods=['GET'])
+def get_messages():
+    all_messages = []
+    with sqlite3.connect(DB) as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT sender,receiver,message,date FROM chat WHERE sender=? AND receiver=? OR sender=? AND receiver=?",
+                       [current_user.username, "admin", "admin", current_user.username])
+        messages = cursor.fetchall()
+
+        for message in messages:
+            all_messages.append({
+                "sender": message[0],
+                "receiver": message[1],
+                "message": message[2],
+                "date": message[3]
+            })
+    return jsonify(messages = all_messages) 
 
 
 @ app.route("/register", methods=['GET', 'POST'])
@@ -275,12 +303,56 @@ def index():
     return render_template('start.html', title='Start')
 
 
+## THIS IS A DUMMY IMPLEMENTATION OF A CHAT BETWEEN ADMIN AND USER
+
+@ app.route("/chat/admin", methods=['GET', 'POST'])
+@login_required
+def chat_admin():
+    if request.method == 'POST':
+        data = request.get_json()
+        message = data.get("message")
+        receiver = data.get("receiver")
+        dateTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        print(message)
+        print(receiver)
+        with sqlite3.connect(DB) as conn:
+            cursor = conn.cursor()
+            if receiver != 'admin':
+                cursor.execute(
+                    "INSERT INTO chat(sender, receiver, date, message) VALUES(?,?,?,?)",["admin", receiver, dateTime, message])
+            return redirect(url_for('chat_admin'))
+
+    js_file = url_for('static', filename='js/admin.js')
+    return render_template('admin.html', title='Admin Chat', js_file=js_file)
+
+
 @ app.route("/chat", methods=['GET', 'POST'])
 @login_required
 def chat():
+    if request.method == 'POST':
+        data = request.get_json()
+        message = data.get("message")
+        sender = data.get("sender")
+        dateTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        with sqlite3.connect(DB) as conn:
+            cursor = conn.cursor()
+            if sender != 'admin':
+                cursor.execute(
+                    "INSERT INTO chat(sender, receiver, date, message) VALUES(?,?,?,?)",[sender, "admin", dateTime, message])
+            print("massage")
+            return redirect(url_for('chat'))
+
+   
+
     img_path = check_profilepic()
 
-    return render_template('chat.html', title='Chat', imgPath = img_path)
+    js_file = url_for('static', filename='js/chat.js')
+
+    return render_template('chat.html', title='Chat', imgPath = img_path, js_file=js_file)
+
+#####################################################################################
 
 
 @ app.route("/history", methods=['GET', 'POST'])
