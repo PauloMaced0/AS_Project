@@ -8,7 +8,7 @@
         <div class="row m-3">
             <button onclick="toggle('popup_rent')" class="btn btn-light button_purple">Rent Scooter(s)</button>        </div>
         <div class="row m-3">
-            <a class="text-center a_link" href="">Join group trip</a>
+            <a class="text-center a_link" onclick="toggle('popup_group')">Join group trip</a>
         </div>
     </div>
 </div>
@@ -22,6 +22,23 @@
         <div class="row m-3">
             <a href="{{ url_for('trip') }}" class="text-center a_link">Add another scooter</a>
         </div>
+    </div>
+</div>
+
+<!-- hidden div -->
+<div id="popup_group" class="main_menu main_menu_group_popup" style="display:none">
+    <div class="container align-content-center">
+            <div class="row m-3">
+            <label class="form-label text-muted" for="TripID">Enter Trip ID:</label>
+                <input type="text" class="form-control" id="TripID">
+            </div>
+            <div class="row m-3">
+                <label class="form-label text-muted" for="ScooterID">Enter Scooter ID:</label>
+                <input type="text" class="form-control" id="ScooterID">
+            </div>
+            <div class="row m-3">
+                <button class="btn btn-light button_purple text-center">Join</button>
+            </div>
     </div>
 </div>
 
