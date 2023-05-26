@@ -1,0 +1,14 @@
+lowercaseOutputName: true
+rules:
+  - pattern: 'kafka.consumer<type=ConsumerTopicMetrics, client-id=([-.\w]+), topic=latitude>'
+    name: kafka_latitude_value
+    type: GAUGE
+  - pattern: 'kafka.consumer<type=ConsumerTopicMetrics, client-id=([-.\w]+), topic=longitude>'
+    name: kafka_longitude_value
+    type: GAUGE
+  - pattern: 'kafka.consumer<type=ConsumerTopicMetrics, client-id=([-.\w]+), topic=altitude>'
+    name: kafka_altitude_value
+    type: GAUGE
+  - pattern: 'kafka.consumer<type=ConsumerTopicMetrics, client-id=([-.\w]+), topic=battery>'
+    name: kafka_battery_value
+    type: GAUGE

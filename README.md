@@ -6,7 +6,7 @@ This project implements a service for scooter rental, similar to Uber.
 - Docker-compose
 
 ### Installation
-- Clone repository
+- Clone repository and cd into `TrotiNet_Webapp/`
 - To run docker containers, run:
 
     ```bash
@@ -14,3 +14,6 @@ This project implements a service for scooter rental, similar to Uber.
     ```
     - Flask application will be available at http://localhost:5001
     - Prometheus metrics will be available at https://localhost:9090
+        - Metrics:
+            - Kafka service status 
+            - scooter status and metrics
