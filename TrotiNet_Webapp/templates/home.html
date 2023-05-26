@@ -6,7 +6,7 @@
 <div class="main_menu">
     <div class="container align-content-center">
         <div class="row m-3">
-            <button onclick="toggle('popup_rent')" class="btn btn-light button_purple">Rent Scooter(s)</button>        </div>
+            <button onclick="toggle('popup_qrcode')" class="btn btn-light button_purple">Rent Scooter(s)</button>        </div>
         <div class="row m-3">
             <a class="text-center a_link" onclick="toggle('popup_group')">Join group trip</a>
         </div>
@@ -20,7 +20,7 @@
             <a href="{{ url_for('checkout') }}" class="btn btn-light button_purple text-center">Checkout</a>
         </div>
         <div class="row m-3">
-            <a href="{{ url_for('trip') }}" class="text-center a_link">Add another scooter</a>
+            <a onclick="toggle('popup_rent'); toggle('popup_qrcode')" class="text-center a_link">Add another scooter</a>
         </div>
     </div>
 </div>
@@ -39,6 +39,20 @@
             <div class="row m-3">
                 <button class="btn btn-light button_purple text-center">Join</button>
             </div>
+    </div>
+</div>
+
+<!-- hidden div -->
+<div id="popup_qrcode" class="main_menu menu_qrcode_popup" style="display:none;">
+    <div class="container align-content-center">
+        <div class="row m-2">
+
+            <a onclick="toggle('popup_qrcode'); toggle('popup_rent')"  class="btn"><img src="{{ url_for('static', filename='img/interfaceImage/Qr_code.png') }}" alt="Image" width="90%" class=""/></a>
+
+        </div>
+        <div class="row m-3">
+            <a href="{{ url_for('trip') }}" class="btn btn-light button_purple text-center">Close</a>
+        </div>
     </div>
 </div>
 
