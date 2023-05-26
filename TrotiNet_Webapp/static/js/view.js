@@ -1,22 +1,12 @@
-// Create a Leaflet map object
-var map = L.map('map_trip').setView([41.14278390310927, -8.612213735423238], 17);
+// Create a Leaflet map objectd
+
+const scooter = {"lat":40.6384849216439 ,"long": -8.651193883281309 };
+var map = L.map('map_trip').setView([scooter.lat, scooter.long], 18);
 
 // Add a tile layer from OpenStreetMap
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
 
-$.getJSON("https://api.jsonbin.io/v3/b/64442b4b8e4aa6225e8ec932", function (data) {
-  // var restaurants = L.geoJSON(data.record.features, {
-
-  //   // pointToLayer: function (feature, latlng) {
-  //   //   return L.marker(latlng, {
-  //   //     // icon:myIcon
-  //   //   });
-  //   // },
-  //   pointToLayer: function (feature, latlng) {
-  //     return L.marker(latlng)
-  //   },
-  // }).addTo(map);
-});
+L.marker([scooter.lat, scooter.long]).addTo(map)
 
 $(".leaflet-control-attribution").remove();
 
