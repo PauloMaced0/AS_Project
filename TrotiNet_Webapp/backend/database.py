@@ -61,8 +61,8 @@ def clean_database():
 
 
 def main():
-    # setup_database()
-    show_database()
+    setup_database()
+    # show_database()
     # clean_database()
 
 
