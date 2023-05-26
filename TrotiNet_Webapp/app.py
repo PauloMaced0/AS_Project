@@ -306,7 +306,6 @@ def index():
 ## THIS IS A DUMMY IMPLEMENTATION OF A CHAT BETWEEN ADMIN AND USER
 
 @ app.route("/chat/admin", methods=['GET', 'POST'])
-@login_required
 def chat_admin():
     if request.method == 'POST':
         data = request.get_json()
