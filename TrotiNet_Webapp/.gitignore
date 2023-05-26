@@ -1,4 +1,4 @@
 __pycache__/
 /venv/
-# static/img/profileImage/
+backend/static/img/profileImage/
 app.db
