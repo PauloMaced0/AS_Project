@@ -1,11 +1,11 @@
-var scooterIcon= L.icon({
+var scooterIcon = L.icon({
   iconUrl: "./static/img/interfaceImage/scooter.png",
-  iconSize: [30, 30], 
+  iconSize: [30, 30],
 });
 
 var userIcon = L.icon({
   iconUrl: "./static/img/interfaceImage/user.png",
-  iconSize: [35, 35], 
+  iconSize: [35, 35],
 });
 
 function resizeMarkers() {
@@ -36,10 +36,10 @@ const user_location = { "lat": 40.633202419864595, "long": -8.65943696039659 }
 var map = L.map('map_book').setView([user_location.lat, user_location.long], 17);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom:19,
+  maxZoom: 19,
 }).addTo(map);
 
-L.marker([user_location.lat, user_location.long], {icon: userIcon}).addTo(map);
+L.marker([user_location.lat, user_location.long], { icon: userIcon }).addTo(map);
 
 function displayDataOnMap(data) {
   data.record.scooter_location.forEach(function (scooter) {
@@ -59,7 +59,7 @@ function displayDataOnMap(data) {
     var marker = L.marker([lat, long], { icon: scooterIcon }).addTo(map);
     marker
       .bindPopup('<div class="d-flex align-items-center"> Battery:&nbsp <strong>' + batt + '%</strong>&nbsp' + battery_state + '</div>')
-      .on('click', function(){
+      .on('click', function () {
         console.log(batt);
       });
     markers.push(marker);
