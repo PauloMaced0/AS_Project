@@ -50,6 +50,8 @@ function updateIconColors() {
         '/trip/view': 'home_icon',
         '/trip/checkout': 'home_icon',
         '/book': 'book_icon',
+        '/book/custom': 'book_icon',
+        '/book/checkout': 'book_icon',
         '/account': 'profile_icon',
         '/history': 'history_icon',
         '/chat': 'chat_icon'

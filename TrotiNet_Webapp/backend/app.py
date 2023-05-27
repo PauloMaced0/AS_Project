@@ -122,11 +122,13 @@ def check_profilepic() -> str:
 
 
 @ app.route("/get_user_id",  methods=['GET'])
+@ login_required
 def get_user_id():
     return jsonify({'userId' : current_user.username})
 
 
 @ app.route("/get_user_img_path",  methods=['GET'])
+@ login_required
 def get_user_img_path():
     return jsonify({'img_path' : check_profilepic()})
 
@@ -270,39 +272,6 @@ def account():
     return render_template('account.html', title='Account', personalform=Personalform, accountform=Accountform, picform=ProfilePicform, passwordform=Passwordform, imgPath = img_path)
 
 
-@ app.route("/trip/view", methods=['GET', 'POST'])
-@login_required
-def view():
-    js_file = url_for('static', filename='js/view.js')
-    return render_template('view.html', title='View', js_file = js_file)
-
-
-@app.route("/trip/checkout", methods=['GET', 'POST'])
-@login_required
-def checkout(): 
-    return render_template('checkout.html', title=' Checkout')
-
-
-@app.route("/trip/add", methods=['GET', 'POST'])
-@login_required
-def add(): 
-    return render_template('checkout.html', title=' Checkout')
-
-
-@ app.route("/trip", methods=['GET', 'POST'])
-@login_required
-def trip():
-    js_file = url_for('static', filename='js/popup.js')
-    return render_template('home.html', title='Trip', js_file = js_file)
-
-
-@ app.route("/")
-def index():
-    if current_user.is_authenticated:
-        return redirect(url_for('trip'))
-    return render_template('start.html', title='Start')
-
-
 ## THIS IS A DUMMY IMPLEMENTATION OF A CHAT BETWEEN ADMIN AND USER
 
 @ app.route("/chat/admin", methods=['GET', 'POST'])
@@ -354,6 +323,32 @@ def chat():
 #####################################################################################
 
 
+@ app.route("/trip/view", methods=['GET', 'POST'])
+@login_required
+def view():
+    js_file = url_for('static', filename='js/view.js')
+    return render_template('view.html', title='View', js_file = js_file)
+
+
+@app.route("/trip/checkout", methods=['GET', 'POST'])
+@login_required
+def checkout(): 
+    return render_template('checkout.html', title=' Checkout')
+
+
+@ app.route("/trip", methods=['GET', 'POST'])
+@login_required
+def trip():
+    js_file = url_for('static', filename='js/popup.js')
+    return render_template('home.html', title='Trip', js_file = js_file)
+
+
+@ app.route("/")
+def index():
+    if current_user.is_authenticated:
+        return redirect(url_for('trip'))
+    return render_template('start.html', title='Start')
+
 @ app.route("/history", methods=['GET', 'POST'])
 @login_required
 def history():
@@ -366,6 +361,18 @@ def book():
     js_file = url_for('static', filename='js/book.js')
     return render_template('book.html', title='Book Scooter', js_file = js_file)
 
+
+@ app.route("/book/custom", methods=['GET', 'POST'])
+@login_required
+def customBook(): 
+    js_file = url_for('static', filename='js/custombook.js')
+    return render_template('custombook.html', title='Book Scooter', js_file = js_file)
+
+
+@ app.route("/book/checkout", methods=['GET', 'POST'])
+@login_required
+def bookCheckout(): 
+    return render_template('bookCheckout.html', title='Book Scooter')
 
 @ app.route("/about")
 def about():
