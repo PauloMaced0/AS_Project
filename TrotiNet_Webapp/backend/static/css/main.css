@@ -124,64 +124,66 @@ footer {
     position: absolute;
     left: 0%;
     right: 0%;
-    top: 70.44%;
+    top: 75%;
     bottom: 0%;
 }
 
 .main_menu_popup {
-
     background: #FFFFFF;
     border-radius: 20px 20px 0px 0px;
     filter: drop-shadow(0px -1px 2px rgba(0, 0, 0, 0.15));
 }
 
 .main_menu_group_popup {
-    
+
     background: #FFFFFF;
     border-radius: 20px 20px 0px 0px;
     filter: drop-shadow(0px -1px 2px rgba(0, 0, 0, 0.15));
-    top:70%;
+    top: 70%;
 }
 
 .menu_qrcode_popup {
     position: absolute;
-    background: #777777;
-    border-radius: 0px 00px 0px 0px;
+    backdrop-filter: blur(6px);
     filter: drop-shadow(0px -1px 2px rgba(0, 0, 0, 0.15));
     top: 0%;
-    color: white;
 
 }
 
-.qrcode{
+.qrcode {
     position: relative;
     width: 90%;
     height: 90%;
 }
-.qrcode::before{
+
+.qrcode::before {
     content: '';
     position: absolute;
     top: 0%;
-    left: 4%;
-    width: 97%;
-    height: 100%;
-    background: url('../img/interfaceImage/Qr_code2.png');
-    border-radius: 2%;
+    width: 100%;
+    height: 7px;
+    background: rgb(100, 0, 100);
+    box-shadow: 0px 0px 15px rgb(100, 0, 100);
     background-size: 95%;
     animation: scan 6s ease-in-out infinite;
 }
 
-@keyframes scan{
-    0%{
-        height: 0%;
+@keyframes scan {
+    0% {
+        top: 0%;
     }
-    50%{
-        height: 100%;
+
+    50% {
+        top: 100%;
+    }
+
+    100% {
+        top: 0%;
     }
 }
 
 
-.book_popup{
+.book_popup {
     background: #FFFFFF;
     border-radius: 20px 20px 0px 0px;
     filter: drop-shadow(0px -1px 2px rgba(0, 0, 0, 0.15));
