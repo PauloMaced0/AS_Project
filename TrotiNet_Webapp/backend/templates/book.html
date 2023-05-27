@@ -6,28 +6,25 @@
         <div class="col-6 my-1">
             <h2>Book a Scooter</h2>
         </div>
-        <div class="col-6 d-flex justify-content-end ">
-
-        </div>
     </div>
 </div>
 
-<div class="">
-    <div id="map_book" class="map">
-    </div>
-    <div id="popup_group" class="main_menu book_popup">
-        <div class="container align-content-center">
-            <div class="row my-3 mx-2">
-                <div class="col">
-                    <input type="date" value="2022-05-25" class="form-control">
-                </div>
-                <div class="col">
-                    <input type="time" value="03:04" class="form-control">
-                </div>
+<div id="map_book" class="map">
+</div>
+<div class="main_menu book_popup">
+    <div class="container align-content-center">
+        <div class="row my-3 mx-2">
+            <label class="form-label">End Date/Time</label>
+            <div class="col">
+                <input type="date" id="dateInput" class="form-control">
             </div>
-            <div class="row m-3">
-                <a href="{{url_for('checkout')}}"class="btn btn-light button_purple text-center">Checkout</a>
+            <div class="col">
+                <input type="time" id="timeInput" class="form-control">
             </div>
+        </div>
+        <div class="row m-3">
+            <a href="{{ url_for('bookCheckout')}}" class="btn btn-light button_purple text-center">Book</a>
+            <a href="{{ url_for('customBook') }}" class="text-center a_link mt-2">Custom book</a>
         </div>
     </div>
 </div>

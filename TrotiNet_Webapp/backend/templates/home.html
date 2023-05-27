@@ -32,7 +32,7 @@
             <label class="form-label text-muted" for="TripID">Enter Trip ID:</label>
                 <input type="text" class="form-control" id="TripID">
             </div>
-            <div class="row m-3">
+            <div class="row m-3" onclick="toggle('popup_rent'); toggle('popup_qrcode')">
                 <a href=""class="btn btn-light button_purple text-center">Scan QR code</a>
             </div>
     </div>
@@ -41,11 +41,8 @@
 <!-- hidden div -->
 <div id="popup_qrcode" class="main_menu menu_qrcode_popup" style="display:none;">
     <div onclick="toggle('popup_rent');toggle('popup_qrcode')" class="container align-content-center">
-        <div class="text-center mt-5 mb-5">
-            <h1>Scanning QR Code...</h1>
-        </div>
-        <div class="row m-2 qrcode">
-            <a class="btn"><img src="{{ url_for('static', filename='img/interfaceImage/Qr_code.png') }}" alt="QR code" width="90%" class=""/></a>
+        <div class="row qrcode mx-auto" style="margin-top: 55%;">
+            <a class="btn" style="border: none;"><img src="{{ url_for('static', filename='img/interfaceImage/Qr_code.png') }}" alt="QR code" width="90%"></a>
         </div>
     </div>
 </div>

@@ -33,7 +33,7 @@ function resizeMarkers() {
 var markers = [];
 
 const user_location = { "lat": 40.633202419864595, "long": -8.65943696039659 }
-var map = L.map('map_book').setView([user_location.lat, user_location.long], 17);
+var map = L.map('map_book').setView([user_location.lat - 0.00080, user_location.long], 17);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
@@ -71,6 +71,17 @@ $.getJSON("https://api.jsonbin.io/v3/b/646f7a938e4aa6225ea401ee", function (data
   displayDataOnMap(data);
 });
 
+function setDateInput() {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  let month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+  let day = currentDate.getDate().toString().padStart(2, '0');
+
+  const formattedDate = `${year}-${month}-${day}`;
+  document.getElementById("dateInput").value = formattedDate;
+}
+
+setDateInput();
 
 $(".leaflet-control-attribution").remove();
 
