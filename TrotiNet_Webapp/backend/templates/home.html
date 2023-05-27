@@ -33,25 +33,19 @@
                 <input type="text" class="form-control" id="TripID">
             </div>
             <div class="row m-3">
-                <label class="form-label text-muted" for="ScooterID">Enter Scooter ID:</label>
-                <input type="text" class="form-control" id="ScooterID">
-            </div>
-            <div class="row m-3">
-                <button class="btn btn-light button_purple text-center">Join</button>
+                <a href=""class="btn btn-light button_purple text-center">Scan QR code</a>
             </div>
     </div>
 </div>
 
 <!-- hidden div -->
 <div id="popup_qrcode" class="main_menu menu_qrcode_popup" style="display:none;">
-    <div class="container align-content-center">
-        <div class="row m-2">
-
-            <a onclick="toggle('popup_qrcode'); toggle('popup_rent')"  class="btn"><img src="{{ url_for('static', filename='img/interfaceImage/Qr_code.png') }}" alt="Image" width="90%" class=""/></a>
-
+    <div onclick="toggle('popup_rent');toggle('popup_qrcode')" class="container align-content-center">
+        <div class="text-center mt-5 mb-5">
+            <h1>Scanning QR Code...</h1>
         </div>
-        <div class="row m-3">
-            <a href="{{ url_for('trip') }}" class="btn btn-light button_purple text-center">Close</a>
+        <div class="row m-2 qrcode">
+            <a class="btn"><img src="{{ url_for('static', filename='img/interfaceImage/Qr_code.png') }}" alt="QR code" width="90%" class=""/></a>
         </div>
     </div>
 </div>
