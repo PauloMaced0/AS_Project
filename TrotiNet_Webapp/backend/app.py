@@ -322,6 +322,16 @@ def chat():
 
 #####################################################################################
 
+@ app.route("/history", methods=['GET'])
+@login_required
+def history():
+    toSend = {
+        "camelo":1,
+        "vaca":2,
+        "malro":4
+    }
+    return render_template('history.html', title='History', json = toSend)
+
 
 @ app.route("/trip/view", methods=['GET', 'POST'])
 @login_required
@@ -343,18 +353,6 @@ def trip():
     return render_template('home.html', title='Trip', js_file = js_file)
 
 
-@ app.route("/")
-def index():
-    if current_user.is_authenticated:
-        return redirect(url_for('trip'))
-    return render_template('start.html', title='Start')
-
-@ app.route("/history", methods=['GET', 'POST'])
-@login_required
-def history():
-    return render_template('history.html', title='History')
-
-
 @ app.route("/book", methods=['GET', 'POST'])
 @login_required
 def book(): 
@@ -374,9 +372,11 @@ def customBook():
 def bookCheckout(): 
     return render_template('bookCheckout.html', title='Book Scooter')
 
-@ app.route("/about")
-def about():
-    return render_template('about.html', title='About')
+@ app.route("/")
+def index():
+    if current_user.is_authenticated:
+        return redirect(url_for('trip'))
+    return render_template('start.html', title='Start')
 
 
 @app.route("/logout")

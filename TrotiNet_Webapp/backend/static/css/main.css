@@ -208,3 +208,11 @@ footer {
     top: 16%;
     bottom: 0%;
 }
+
+.card-body p {
+    margin-bottom: 0;
+}
+
+.card-body-pb0 {
+    padding-bottom: 3%;
+}
