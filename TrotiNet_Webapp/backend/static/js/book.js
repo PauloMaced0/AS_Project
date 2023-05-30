@@ -86,3 +86,54 @@ setDateInput();
 $(".leaflet-control-attribution").remove();
 
 $(".leaflet-control-zoom").remove();
+
+var popover = new bootstrap.Popover(document.getElementById('popover'), {
+  container: 'body'
+})
+
+
+var popoverTriggerList = [].slice.call(document.querySelectorAll('#popover'));
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl, {
+    trigger: 'click',
+    html: true,
+    content: function () {
+      // Retrieve the dynamic content
+      var dynamicContent = getDynamicContent();
+      return dynamicContent;
+    }
+  });
+});
+
+function getDynamicContent() {
+  var content = `
+  <div class="card"> 
+    <div class="card-body card-body-pb0">
+      <div class="row">
+        <div class="col-6 d-flex">
+          <h6>Trip ID:&nbsp;</h6>
+        </div> 
+        <div class="col d-flex ">
+          <p>#03292147</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex">
+          <h6>Start Date:&nbsp;</h6>
+        </div>
+        <div class="col d-flex ">
+          <p>18-05-2023 02:04 PM</p>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col d-flex ">
+          <h6>End Date:&nbsp;</h6>
+        </div>
+        <div class="col d-flex"> 
+          <p>19-05-2023 10:17 AM</p>
+        </div>
+      </div>
+    </div>
+  </div>`;
+  return content;
+}
