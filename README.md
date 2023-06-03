@@ -17,3 +17,6 @@ This project implements a service for scooter rental, similar to Uber.
         - Metrics:
             - Kafka service status 
             - scooter status and metrics
+
+### Testing
+After running docker containers, you can test the application by importing `TrotiNet_Webapp/TrotiNET.side` into Selenium IDE. There you will find all the scenarios of the user stories.
