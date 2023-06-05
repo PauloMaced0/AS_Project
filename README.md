@@ -1,5 +1,5 @@
 # AS_Project TrotiNet
-This project implements a service for scooter rental, similar to Uber. 
+This project implements a service for scooter rental and booking. 
 ## Get Started
 ### Requirements
 - Docker
