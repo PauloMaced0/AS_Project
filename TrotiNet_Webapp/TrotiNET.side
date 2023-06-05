@@ -4,104 +4,8 @@
   "name": "TrotiNET",
   "url": "http://localhost:5001",
   "tests": [{
-    "id": "14198c7e-c3a2-48c8-80a3-7b49c2fca69f",
-    "name": "Login",
-    "commands": [{
-      "id": "0fb589af-5683-49a0-81aa-139b7dd317ff",
-      "comment": "",
-      "command": "open",
-      "target": "/",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "428be4cd-4d33-42a9-ad3c-10b9c46d3ed3",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "459x995",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "4b5cf525-4753-4a92-8658-961d6b71159f",
-      "comment": "",
-      "command": "click",
-      "target": "id=login_button",
-      "targets": [
-        ["id=login_button", "id"],
-        ["css=#login_button", "css:finder"],
-        ["xpath=//button[@id='login_button']", "xpath:attributes"],
-        ["xpath=//body[@id='start_page']/div[2]/button", "xpath:idRelative"],
-        ["xpath=//button", "xpath:position"],
-        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "e0ade7aa-bd90-474e-89c6-7da34b7d76c0",
-      "comment": "",
-      "command": "click",
-      "target": "id=email",
-      "targets": [
-        ["id=email", "id"],
-        ["name=email", "name"],
-        ["css=#email", "css:finder"],
-        ["xpath=//input[@id='email']", "xpath:attributes"],
-        ["xpath=//div/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "7baba5b9-c26d-4bad-917f-57f769428642",
-      "comment": "",
-      "command": "type",
-      "target": "id=email",
-      "targets": [
-        ["id=email", "id"],
-        ["name=email", "name"],
-        ["css=#email", "css:finder"],
-        ["xpath=//input[@id='email']", "xpath:attributes"],
-        ["xpath=//div/input", "xpath:position"]
-      ],
-      "value": "andré@ua.pt"
-    }, {
-      "id": "6513cb7e-9347-490a-8fdf-bf974f10bd2e",
-      "comment": "",
-      "command": "type",
-      "target": "id=password",
-      "targets": [
-        ["id=password", "id"],
-        ["name=password", "name"],
-        ["css=#password", "css:finder"],
-        ["xpath=//input[@id='password']", "xpath:attributes"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": "12345678"
-    }, {
-      "id": "9e0800ed-739b-4754-a96b-e8598967d761",
-      "comment": "",
-      "command": "click",
-      "target": "id=submit",
-      "targets": [
-        ["id=submit", "id"],
-        ["name=submit", "name"],
-        ["css=#submit", "css:finder"],
-        ["xpath=//input[@id='submit']", "xpath:attributes"],
-        ["xpath=//div[4]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "7655ee97-0c89-4622-a6bc-b464a3075a5b",
-      "comment": "",
-      "command": "click",
-      "target": "css=.title",
-      "targets": [
-        ["css=.title", "css:finder"],
-        ["xpath=//div[@id='home_page']/h1", "xpath:idRelative"],
-        ["xpath=//h1", "xpath:position"],
-        ["xpath=//h1[contains(.,'TrotiNet')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }]
-  }, {
     "id": "5990fdb8-43c2-4f2b-b991-90b29aed82b3",
-    "name": "Register",
+    "name": "Register and Login",
     "commands": [{
       "id": "b0ca592c-b8af-48df-a996-7f882ab22440",
       "comment": "",
@@ -209,6 +113,13 @@
       ],
       "value": "12345678"
     }, {
+      "id": "ebf7f4b4-ab08-41cd-adfd-9da4086b0e5b",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "7b0eb3b6-97d1-47d8-88b4-fb436b38dcff",
       "comment": "",
       "command": "click",
@@ -235,7 +146,7 @@
       ],
       "value": "12345678"
     }, {
-      "id": "2b12e025-f1f7-45b6-b5bc-4304c2908634",
+      "id": "184561fd-82ca-43d7-a1b7-1693edb3ccc6",
       "comment": "",
       "command": "click",
       "target": "id=submit",
@@ -248,12 +159,80 @@
       ],
       "value": ""
     }, {
-      "id": "ebf7f4b4-ab08-41cd-adfd-9da4086b0e5b",
+      "id": "a331659d-5bf3-412a-be51-86cd6217ef18",
       "comment": "",
       "command": "click",
-      "target": "css=body",
-      "targets": [],
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": "Login"
+    }, {
+      "id": "616ad900-fe88-41c1-8280-38c0f5c09243",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
       "value": ""
+    }, {
+      "id": "42c00e44-b723-4ea9-8417-13a587fefd2b",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "andré@ua.pt"
+    }, {
+      "id": "3cb8e627-ab3f-4829-9cd9-54d42239a4d6",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "c1459863-91fe-4930-be42-93d4a37e4b39",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["name=submit", "name"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e01a16a5-10a2-4711-9338-96662dc8f1da",
+      "comment": "",
+      "command": "click",
+      "target": "css=.title",
+      "targets": [
+        ["css=.title", "css:finder"],
+        ["xpath=//div[@id='home_page']/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'TrotiNet')]", "xpath:innerText"]
+      ],
+      "value": "TrotiNET"
     }]
   }, {
     "id": "ba98ce8e-c2a6-4fd5-923f-7edf8c12195a",
@@ -309,7 +288,7 @@
         ["xpath=//div[@id='chat1']/div[2]/div[2]/div/textarea", "xpath:idRelative"],
         ["xpath=//textarea", "xpath:position"]
       ],
-      "value": "Test"
+      "value": "Test1"
     }, {
       "id": "34139cb3-d960-4920-b6cc-74ccb4c1c1c3",
       "comment": "",
@@ -355,7 +334,7 @@
         ["xpath=//div[@id='chatting']/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div", "xpath:position"]
       ],
-      "value": ""
+      "value": "Test1"
     }]
   }, {
     "id": "8a3d8fac-9aa1-4b5b-acec-f26fbad234fe",
@@ -493,7 +472,7 @@
         ["xpath=//h1", "xpath:position"],
         ["xpath=//h1[contains(.,'TrotiNet')]", "xpath:innerText"]
       ],
-      "value": ""
+      "value": "TrotiNET"
     }]
   }, {
     "id": "f039f871-a605-47ef-aec2-50d5886bfa20",
@@ -1120,7 +1099,7 @@
         ["xpath=//h1", "xpath:position"],
         ["xpath=//h1[contains(.,'TrotiNet')]", "xpath:innerText"]
       ],
-      "value": ""
+      "value": "TrotiNET"
     }]
   }, {
     "id": "4cab55c8-1a6e-436c-8784-b72d633b5124",
@@ -1573,15 +1552,101 @@
         ["xpath=//a[contains(.,' Log out')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "8d3b188f-aed2-4f8b-9a1b-9a5d00f06e62",
+      "comment": "",
+      "command": "click",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": "Login"
+    }]
+  }, {
+    "id": "b221eb91-29e0-47bf-840c-fecb44a53dde",
+    "name": "Client support",
+    "commands": [{
+      "id": "b1417ace-0f14-4204-9e6d-ae38bb0e6bce",
+      "comment": "",
+      "command": "open",
+      "target": "/chat/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c7e28c7-658d-45dc-bf59-8b5c122cfe6b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1327x1390",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "04ae11a8-e140-4a65-b066-8300fddc090a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.message",
+      "targets": [
+        ["css=.message", "css:finder"],
+        ["xpath=//ul[@id='chat_content']/li/div", "xpath:idRelative"],
+        ["xpath=//div[2]/ul/li/div", "xpath:position"]
+      ],
+      "value": "Test1"
+    }, {
+      "id": "5d86d468-5996-4adf-9348-18d57d2c83be",
+      "comment": "",
+      "command": "click",
+      "target": "id=text_message",
+      "targets": [
+        ["id=text_message", "id"],
+        ["css=#text_message", "css:finder"],
+        ["xpath=//input[@id='text_message']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "49ca1015-e50b-4233-b392-84f7a4467750",
+      "comment": "",
+      "command": "type",
+      "target": "id=text_message",
+      "targets": [
+        ["id=text_message", "id"],
+        ["css=#text_message", "css:finder"],
+        ["xpath=//input[@id='text_message']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Test2"
+    }, {
+      "id": "7c44174a-a98f-4475-b2f8-a2f92d6ace8e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bi-send",
+      "targets": [
+        ["css=.bi-send", "css:finder"],
+        ["xpath=//span[@id='send_message']/i", "xpath:idRelative"],
+        ["xpath=//span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dcfcbb4b-a25b-4159-b136-ec4174932219",
+      "comment": "",
+      "command": "click",
+      "target": "css=.other-message",
+      "targets": [
+        ["css=.other-message", "css:finder"],
+        ["xpath=//ul[@id='chat_content']/li[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/ul/li[2]/div", "xpath:position"]
+      ],
+      "value": "Test2"
     }]
   }],
   "suites": [{
-    "id": "fc2b0f18-4d5a-4334-afc9-aa80d57d0945",
-    "name": "User Flow",
+    "id": "d6e72857-fe8b-4541-bbff-22f8c2c083b4",
+    "name": "Use Cases",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["5990fdb8-43c2-4f2b-b991-90b29aed82b3", "14198c7e-c3a2-48c8-80a3-7b49c2fca69f", "c26f82b6-24cb-43a7-a1c6-471542ba83ea", "4cab55c8-1a6e-436c-8784-b72d633b5124", "f039f871-a605-47ef-aec2-50d5886bfa20", "ba98ce8e-c2a6-4fd5-923f-7edf8c12195a", "9e9c0737-baf3-419f-bdb6-f93c5783450d", "8a3d8fac-9aa1-4b5b-acec-f26fbad234fe", "70898143-4881-44ff-9676-6fe02589de95", "6ad71073-4925-461b-a1a4-30f518889f86"]
+    "tests": ["5990fdb8-43c2-4f2b-b991-90b29aed82b3", "c26f82b6-24cb-43a7-a1c6-471542ba83ea", "f039f871-a605-47ef-aec2-50d5886bfa20", "4cab55c8-1a6e-436c-8784-b72d633b5124", "9e9c0737-baf3-419f-bdb6-f93c5783450d", "8a3d8fac-9aa1-4b5b-acec-f26fbad234fe", "70898143-4881-44ff-9676-6fe02589de95", "ba98ce8e-c2a6-4fd5-923f-7edf8c12195a", "b221eb91-29e0-47bf-840c-fecb44a53dde", "6ad71073-4925-461b-a1a4-30f518889f86"]
   }],
   "urls": ["http://localhost:5001/"],
   "plugins": []
